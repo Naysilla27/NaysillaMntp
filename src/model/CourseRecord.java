@@ -15,13 +15,13 @@ public class CourseRecord {
     private Student student;
 
     /** Daftar assignment yang dimiliki mahasiswa */
-    private Vector assignments;
+    private Vector<Assignment> assignments;
 
     /**
      * Constructor default yang menginisialisasi Vector assignments.
      */
     public CourseRecord() {
-        assignments = new Vector();
+        assignments = new Vector<Assignment>();
     }
 
     /**
@@ -52,7 +52,7 @@ public class CourseRecord {
      * Mendapatkan semua assignment dalam bentuk Enumeration.
      * @return Enumeration dari seluruh assignment
      */
-    public Enumeration getAssignments() {
+    public Enumeration<Assignment> getAssignments() {
         return assignments.elements();
     }
 
@@ -63,9 +63,9 @@ public class CourseRecord {
     public double getAverageMark() {
         double total = 0;
         int count = 0;
-        Enumeration e = getAssignments();
+        Enumeration<Assignment> e = getAssignments();
         while (e.hasMoreElements()) {
-            Assignment a = (Assignment) e.nextElement();
+            Assignment a = e.nextElement();
             try {
                 total += a.getMark();
                 count++;

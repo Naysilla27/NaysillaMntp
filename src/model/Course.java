@@ -1,6 +1,5 @@
 package model;
 
-import exception.NotYetSetException;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -15,13 +14,13 @@ public class Course {
     private String title;
 
     /** Daftar catatan perkuliahan seluruh mahasiswa yang mengambil course ini */
-    private Vector courseRecords;
+    private Vector<CourseRecord> courseRecords;
 
     /**
      * Constructor default yang menginisialisasi Vector courseRecords.
      */
     public Course() {
-        courseRecords = new Vector();
+        courseRecords = new Vector<CourseRecord>();
     }
 
     /**
@@ -52,7 +51,7 @@ public class Course {
      * Mendapatkan seluruh CourseRecord dalam bentuk Enumeration.
      * @return Enumeration dari seluruh CourseRecord
      */
-    public Enumeration getCourseRecords() {
+    public Enumeration<CourseRecord> getCourseRecords() {
         return courseRecords.elements();
     }
 
@@ -62,12 +61,12 @@ public class Course {
      */
     public void printCourseStudents() {
         System.out.println("=== Daftar Mahasiswa Course: " + title + " ===");
-        Enumeration e = getCourseRecords();
+        Enumeration<CourseRecord> e = getCourseRecords();
         if (!e.hasMoreElements()) {
             System.out.println("  Tidak ada mahasiswa terdaftar.");
         }
         while (e.hasMoreElements()) {
-            CourseRecord cr = (CourseRecord) e.nextElement();
+            CourseRecord cr = e.nextElement();
             Student s = cr.getStudent();
             if (s != null) {
                 System.out.println("  - " + s.getName()
@@ -84,9 +83,9 @@ public class Course {
         double bestAvg = -1;
         Student bestStudent = null;
 
-        Enumeration e = getCourseRecords();
+        Enumeration<CourseRecord> e = getCourseRecords();
         while (e.hasMoreElements()) {
-            CourseRecord cr = (CourseRecord) e.nextElement();
+            CourseRecord cr = e.nextElement();
             double avg = cr.getAverageMark();
             if (avg > bestAvg) {
                 bestAvg = avg;
@@ -111,9 +110,9 @@ public class Course {
         System.out.println("  (Kriteria: rata-rata nilai >= 60)");
         boolean found = false;
 
-        Enumeration e = getCourseRecords();
+        Enumeration<CourseRecord> e = getCourseRecords();
         while (e.hasMoreElements()) {
-            CourseRecord cr = (CourseRecord) e.nextElement();
+            CourseRecord cr = e.nextElement();
             double avg = cr.getAverageMark();
             if (avg >= 60) {
                 Student s = cr.getStudent();
