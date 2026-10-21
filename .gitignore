@@ -1,0 +1,13 @@
+# Compiled output Java
+out/
+*.class
+
+# VS Code
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
