@@ -9,8 +9,8 @@ import model.*;
  *
  * Modul  : Implementasi dan Pengujian Sistem Informasi
  * Nama   : Naysilla Sifa Aprilianissa
- * NIM    : (isi NIM Anda)
- * Kelas  : (isi kelas Anda)
+ * NIM    : 2450231059
+ * Kelas  : Sistem Informasi B
  */
 public class Main {
 
