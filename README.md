@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Identitas Kelompok
+## 📋 Identitas
 
 | Nama | NIM | Peran |
 |------|-----|-------|
